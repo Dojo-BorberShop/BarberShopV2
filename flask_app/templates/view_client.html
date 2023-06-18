@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Client Details</title>
+</head>
+<a href='/appointments_table'>Appointments Table</a>
+<a href="/logout">Logout</a>
+
+<body>
+<h1>View client details:</h1>
+<p></p>
+    <table>
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Cell Number</th>
+        </thead>
+        <td>{{this_user.first_name}}</td>
+        <td>{{this_user.last_name}}</td>
+        <td>{{this_user.email}}</td>
+        <td>{{this_user.cell}}</td>
+    
+    </table>
+
+    
+</body>
+</html>
