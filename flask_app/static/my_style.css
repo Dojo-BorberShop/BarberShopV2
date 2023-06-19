@@ -1,48 +1,39 @@
+nav {
+    display: flex;
+    align-items: center;
+    background-color: aqua;
+}
+
+
+
 .stocks_table {
     border: solid black 5px;
     border-collapse: collapse;
 }
 
-.sortable {
-    border: solid black 5px;
-    border-collapse: collapse;
+.logout {
+    color: blue;
+    font-weight: bold;
 }
 
-.instructions {
-    margin-left: 25px;
+.appointment_details {
+    color: blue;
+    font-weight: bold;
+    margin-right: 25px;
 }
+
+.nav_row_1 {
+    margin-right: 85px;
+}
+
 
 table td + td { border-left:3px solid black; }
 
 table th + th { border-left:3px solid black; }
 
-.nav_bullet {
-    list-style-type: none;
-    width: 120px;
-    height: 30px;
-    font-weight: bold;
-    color: black;
-}
 
-.nav_container {
-    background-color: rgb(0, 191, 255);
-    display: flex;
-    align-items: center;
-}
 
-.add_stock_nav {
-    background-color: rgb(0, 191, 255);
-    display: flex;
-    align-items: center;
-}
 
-.nav_bullets_container {
-    display: flex;
-}
-
-#first_bullet {
-    margin-right: 20px;
-}
 
 tr:nth-child(even) {
     background-color: Lightgreen;

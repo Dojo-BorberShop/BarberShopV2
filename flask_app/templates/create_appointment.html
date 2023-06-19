@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/my_style.css') }}">
     <title>Create Appointment</title>
 </head>
 <body>
+<nav>
+        <H3 class="nav_row_1">Welcome {{logged_user.first_name}}, to the BarberShop!</H3>
+        <a class="logout" href="/logout">Logout</a>
+</nav>
+        <p></p>
+        <h3>Please select a day and time for your appointment below:</h3>
 
-    <a href="/logout">Logout</a>
-    
-        <H3>Welcome {{logged_user.first_name}}, to the BarberShop! Please select a day and time for your appointment below:</H3>
        
         {% with messages = get_flashed_messages() %}<!-- declare a variable called messages -->
         {% if messages %}<!-- check if there are any messages -->

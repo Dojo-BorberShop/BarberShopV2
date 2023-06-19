@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/my_style.css') }}">
     <title>View Appointment</title>
 </head>
-<a href="/logout">Logout</a>
 <body>
-    <h1>Welcome, {{this_appointment.creator.first_name}}!</h1>
+<nav>
+    <h3 class="nav_row_1">Welcome, {{this_appointment.creator.first_name}}!</h3>
+    <a class="logout" href="/logout">Logout</a>
+</nav>
+    
+    <h3>Below are the details of your appointment:</h3>
     <p></p>
     Time of your appointment: {{this_appointment.time}}
     <p></p>
