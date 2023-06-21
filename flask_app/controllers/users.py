@@ -1,10 +1,10 @@
 from flask import render_template, redirect, request, session
 from flask_app import app
-from flask_app.models import user, appointment
+from flask_app.models import user
 
 from flask_bcrypt import Bcrypt        
 bcrypt = Bcrypt(app)     # we are creating an object called bcrypt, 
-                         # which is made by invoking the function Bcrypt with our app as an argument. SO, MAKE SURE YOU import the app first (row 2)
+                        # which is made by invoking the function Bcrypt with our app as an argument. SO, MAKE SURE YOU import the app first (row 2)
 
 
 
