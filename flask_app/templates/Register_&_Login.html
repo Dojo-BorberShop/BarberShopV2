@@ -1,91 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/my_style.css') }}">
-    <title>Stock Club</title>
+    <title>Home Page</title>
 </head>
+
 <body>
-        <div class="columns">
+    <h1 class="welcome">Welcome to Barber Shop!</h1>
+    <div class="container">
+
         <div class="register">
-            <p>Register</p>
-            {% with messages = get_flashed_messages(category_filter=["registration"]) %}<!-- declare a variable called messages -->
-                {% if messages %}<!-- check if there are any messages -->
-                    {% for message in messages %}<!-- loop through the messages -->
-                    <p>{{message}}</p><!-- display each message in a paragraph tag -->
-                    {% endfor %}
-                {% endif %}
+
+            {% with messages = get_flashed_messages(category_filter=["registration"])
+            %}<!-- declare a variable called messages -->
+            {% if messages %}<!-- check if there are any messages -->
+            {% for message in messages %}<!-- loop through the messages -->
+            <p>{{message}}</p><!-- display each message in a paragraph tag -->
+            {% endfor %}
+            {% endif %}
             {% endwith %}
 
-            <form action="/register_process" method="post">
-                <div>
-                <label for="first_name">First name:</label>
-                <input type="text" id="first_name" name="first_name">
-                </div>
-                <p></p>
-                <div>
-                <label for="last_name">Last name:</label>
-                <input type="text" id="last_name" name="last_name">
-                </div>
-                <p></p>
-                <div>
-                <label for="cell">Cell Number:</label>
-                <input type="text" id="cell" name="cell">
-                </div>
-                <p></p>
-                <div>
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email">
-                </div>
-                <p></p>
-                <div>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
-                </div>
-                <p></p>
-                <div>
-                <label for="confirm_password">Confirm password:</label>
-                <input type="password" id="confirm_password" name="confirm_password">
-                </div>
-                <p></p>
+            <form action="/register_process" method="post" class="form">
+                <p class="reg-nav1">Register</p>
+                <p><input type="text" id="first_name" name="first_name" placeholder="First Name"></p>
+                <p><input type="text" id="last_name" name="last_name" placeholder="Last Name"></p>
+                <p><input type="text" id="cell" name="cell" placeholder="Cell Number:"></p>
+                <p><input type="text" id="email" name="email" placeholder="Email"></p>
+                <p><input type="password" id="password" name="password" placeholder="Password"></p>
+                <p><input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password">
+                </p>
+
                 <!-- For the "is_owner" on the request.form, nothing will show up in the request.form dictionary if it is not selected. If you select yes/no, then it will show up. So, we can create validation to say if "is_owner", not in requst.form, is_valid=False. -->
-                <p>Are you the business owner?</p>
-                <input type="radio" name="is_owner" id="is_owner_yes" value="1">
-                <label for="is_owner_yes">Yes</label>
-                <input type="radio" name="is_owner" id="is_owner_no" value="0">
-                <label for="is_owner_no">No</label>
+                <div class="reg-nav2">
+                    <p class="spacer">Business owner?</p>
+                    <label for="is_owner_yes">Yes</label>
+                    <input type="radio" name="is_owner" id="is_owner_yes" value="1">
+                    <label for="is_owner_no">No</label>
+                    <input type="radio" name="is_owner" id="is_owner_no" value="0">
                 </div>
-                <p></p>
-                <input type="submit" name="register" id="register" value="Register">
-                <div>
-                </form>
-            </div>
-        <div class="login">
-            <p>Log in</p>
-            {% with messages = get_flashed_messages(category_filter=["login"]) %}<!-- declare a variable called messages -->
-            {% if messages %}<!-- check if there are any messages -->
-                {% for message in messages %}<!-- loop through the messages -->
-                <p>{{message}}</p><!-- display each message in a paragraph tag -->
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-            <form action="/login_process" method="post">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email">
-                </div>
-                <p></p>
-                <div>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
-                </div>
-                <p></p>
-                <input type="submit" name="register" id="register" value="Log in">
+
+                <p><input type="submit" name="register" id="register" value="Register" class="reg-btn"></p>
             </form>
         </div>
+
+        <div class="login">
+
+
+            {% with messages = get_flashed_messages(category_filter=["login"])
+            %}<!-- declare a variable called messages -->
+            {% if messages %}<!-- check if there are any messages -->
+            {% for message in messages %}<!-- loop through the messages -->
+            <p>{{message}}</p><!-- display each message in a paragraph tag -->
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <form action="/login_process" method="post" class="form">
+                <p class="reg-nav1">Log in</p>
+                <p><input type="text" id="email" name="email" placeholder="Email"></p>
+                <p><input type="password" id="password" name="password" placeholder="Password"></p>
+                <p><input type="submit" name="register" id="register" value="Log in" class="reg-btn"></p>
+            </form>
+
+        </div>
+    </div>
+    <div class="nav3">
+        <label class="nav3" for="img2">Follow Us:</label>
+        <img class="img2" src="static/icons4.png" alt="socialmedia">
     </div>
 
-
 </body>
+
 </html>

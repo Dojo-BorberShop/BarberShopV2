@@ -1,9 +1,10 @@
-import requests
 from flask_app import app
-import os
-from flask import render_template, redirect, request, session, jsonify
+from flask import render_template, redirect, request, session
 from flask_app.models import appointment, user
-from pprint import pprint
+
+@app.route('/') 
+def home():
+    return redirect('/register_&_login_view')
 
 @app.route('/create_appointment')         
 def create_appointment(): 
