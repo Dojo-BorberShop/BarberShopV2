@@ -43,8 +43,10 @@ def register():
         #Next, in the model, we will need to create a query to find out which user is logged in by ID. So, we add the @classmethod "grab_one_user_by_id"
         
         #get user info so can determine if they are an owner:
-
-        return redirect ('/create_appointment')
+        if data["is_owner"] == "1":
+            return redirect ('/appointments_table')
+        else:
+            return redirect ('/create_appointment')
 
 @app.route('/login_process', methods = ["POST"]) 
 def login():
@@ -65,7 +67,7 @@ def login():
             "id":session["user_id"]
         }
         user_data = user.User.grab_one_user_by_id(id)
-         #if they aret an owner:
+        #if they aret an owner:
         if user_data.is_owner==True:
             return redirect ('/appointments_table')
         else:
