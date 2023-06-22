@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/my_style.css') }}">
     <title>View Appointment</title>
 </head>
-<body>
-<nav>
-    <h3 class="nav_row_1">Welcome, {{this_appointment.creator.first_name}}!</h3>
-    <a class="logout" href="/logout">Logout</a>
-</nav>
-    
-    <h3>Below are the details of your appointment:</h3>
-    <p></p>
-    Time of your appointment: {{this_appointment.time}}
-    <p></p>
-    Date of your appointment: {{this_appointment.date}}
-    <p></p>
 
-    <a href="/appointment/edit/{{this_appointment.id}}">Update</a> time of your appointment.
-    <p></p>
-    <a href="/appointment/delete/{{this_appointment.id}}">Cancel</a> your appointment.
-    <p></p>
-    <a href="/create_appointment">Make new appointment</a>
-    <a href="https://goo.gl/maps/EBUHCGWj6WNpsjGb8" target="_blank">
-        <img src="../static/barber shop map.png" alt="barbershop location" height="40%" width="40%">
-    </a>
+<body>
+    <nav>
+        <h3 class="nav_row_1">Welcome, {{this_appointment.creator.first_name}}!</h3>
+        <a class="logout" href="/logout">Logout</a>
+    </nav>
+    <div class="container2">
+        <div class="form">
+            <h3>Below are the details of your appointment:</h3>
+            <p>Time of your appointment: {{this_appointment.time}}</p>
+            <p>Date of your appointment: {{this_appointment.date}}</p>
+            <p><a class="btn" href="/appointment/edit/{{this_appointment.id}}">Update</a> time of your appointment.</p>
+            <p><a class="btn" href="/appointment/delete/{{this_appointment.id}}">Cancel</a> your appointment.</p>
+            <a class="btn" href="/create_appointment">Make new appointment</a>
+        </div>
+
+    </div>
+    <div class="map">
+        <a href="https://goo.gl/maps/EBUHCGWj6WNpsjGb8" target="_blank">
+            <img src="../static/barber shop map.png" alt="barbershop location" class="map1">
+        </a>
+
+    </div>
+
 </body>
+
 </html>

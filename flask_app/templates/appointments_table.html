@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/my_style.css') }}">
     <title>Appointments Table</title>
 </head>
+
 <body>
-    <a href="/logout">Logout</a>
-    <h1>Here are your appointments: </h1>
-    <p></p>
+    <nav>
+        <h3>Welcome to the BarberShop {{logged_user.first_name}}!</h3>
+        <a class="logout" href="/logout">Logout</a>
+    </nav>
+    <h1 class="nav4">Here are your appointments: </h1>
+    <div class="container">
 
-    <table>
-        <thead>
-            <th>Client Name</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Action</th>
-        </thead>
-        <tbody>
-            {% for Added_Appointment in List_Appointment_Objects |sort(attribute='date') %}
-            <tr>
-                <td>{{Added_Appointment.creator.first_name}} {{Added_Appointment.creator.last_name}}</td>
-                <td>{{Added_Appointment.date}}</td>
-                <td>{{Added_Appointment.time}}</td>
-                <td><a href="/clients/view/{{Added_Appointment.creator.id}}">View Client Details</a> 
-                    <a href="/owner/appointment/delete/{{Added_Appointment.id}}">Remove Appointment</a> </td>
 
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <table>
+            <thead>
+                <th>Client Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {% for Added_Appointment in List_Appointment_Objects |sort(attribute='date') %}
+                <tr>
+                    <td>{{Added_Appointment.creator.first_name}} {{Added_Appointment.creator.last_name}}</td>
+                    <td>{{Added_Appointment.date}}</td>
+                    <td>{{Added_Appointment.time}}</td>
+                    <td>
+                        <a class="logout" href="/clients/view/{{Added_Appointment.creator.id}}">View Client Details</a>
+                        <a class="logout" href="/owner/appointment/delete/{{Added_Appointment.id}}">Remove Appointment</a>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 </body>
+
 </html>

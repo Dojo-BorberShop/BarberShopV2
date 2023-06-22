@@ -1,7 +1,6 @@
 from flask import render_template, redirect, request, session
 from flask_app import app
 from flask_app.models import user
-
 from flask_bcrypt import Bcrypt        
 bcrypt = Bcrypt(app)     # we are creating an object called bcrypt, 
                         # which is made by invoking the function Bcrypt with our app as an argument. SO, MAKE SURE YOU import the app first (row 2)
@@ -54,7 +53,6 @@ def login():
         data = {
             "email":request.form["email"]#we got email and password from login form
         }
-
         
         found_user = user.User.grab_one_user_by_email(data)
         #above, we get an object back (see grab_one_user_by_email method in user.py model)
@@ -65,7 +63,7 @@ def login():
             "id":session["user_id"]
         }
         user_data = user.User.grab_one_user_by_id(id)
-         #if they aret an owner:
+        #if they aret an owner:
         if user_data.is_owner==True:
             return redirect ('/appointments_table')
         else:

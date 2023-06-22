@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/my_style.css') }}">
-    <title>Create Appointment</title>
+    <title>Create Appointment Page</title>
 </head>
-<body>
-<nav>
-        <H3 class="nav_row_1">Welcome {{logged_user.first_name}}, to the BarberShop!</H3>
-        <a class="logout" href="/logout">Logout</a>
-</nav>
-        <p></p>
-        <h3>Please select a day and time for your appointment below:</h3>
 
-       
+<body>
+    <nav>
+        <h3>Welcome to the BarberShop {{logged_user.first_name}}!</h3>
+        <a class="logout" href="/logout">Logout</a>
+    </nav>
+    <h3 class="nav4">Please select a day and time for your appointment below:</h3>
+
+    <div class="container">
+
+        
         {% with messages = get_flashed_messages() %}<!-- declare a variable called messages -->
         {% if messages %}<!-- check if there are any messages -->
-            {% for message in messages %}<!-- loop through the messages -->
-                <p>{{message}}</p><!-- display each message in a paragraph tag -->
+        {% for message in messages %}<!-- loop through the messages -->
+        <p>{{message}}</p><!-- display each message in a paragraph tag -->
         {% endfor %}
-            {% endif %}
+        {% endif %}
         {% endwith %}
-       
-        <form action="/create_appointment_process", method="post">
-        <p></p>
-        <div>
-            <label>Date:</label>
-            <input type="date" name="date">
-        </div>
-        <p></p>
-        <div>
-            <label>Time:</label>
-            <input type="time" name="time">
-        </div>
-        <p></p>
-        <input type="submit" value="Submit">
-    </form>
-    
+
+        <form action="/create_appointment_process" , method="post">
+            <div>
+                <label class="label1">Date:</label>
+                <input type="date" name="date">
+            </div>
+            <div>
+                <label class="label1">Time:</label>
+                <input type="time" name="time">
+            </div>
+            <input type="submit" value="Submit" class="reg-btn">
+        </form>
+    </div>
+
 </body>
+
 </html>
