@@ -215,3 +215,11 @@ a {
     width: 800px; 
     height: 600px;
 }
+
+/* 
+ */
+
+.message {
+    color: whitesmoke;
+    font-size: 75%;
+}
