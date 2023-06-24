@@ -18,7 +18,7 @@
                 %}<!-- declare a variable called messages -->
                 {% if messages %}<!-- check if there are any messages -->
                 {% for message in messages %}<!-- loop through the messages -->
-                <p>{{message}}</p><!-- display each message in a paragraph tag -->
+                <p class="message">{{message}}</p><!-- display each message in a paragraph tag -->
                 {% endfor %}
                 {% endif %}
                 {% endwith %}
@@ -28,7 +28,8 @@
                 <p><input type="text" id="cell" name="cell" placeholder="Cell Number:"></p>
                 <p><input type="text" id="email" name="email" placeholder="Email"></p>
                 <p><input type="password" id="password" name="password" placeholder="Password"></p>
-                <p><input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password"></p>
+                <p><input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password">
+                </p>
                 <!-- For the "is_owner" on the request.form, nothing will show up in the request.form dictionary if it is not selected. If you select yes/no, then it will show up. So, we can create validation to say if "is_owner", not in requst.form, is_valid=False. -->
                 <div class="reg-nav2">
                     <p class="spacer">Business owner?</p>
@@ -45,16 +46,19 @@
         <div class="login">
 
 
-            {% with messages = get_flashed_messages(category_filter=["login"])
-            %}<!-- declare a variable called messages -->
-            {% if messages %}<!-- check if there are any messages -->
-            {% for message in messages %}<!-- loop through the messages -->
-            <p>{{message}}</p><!-- display each message in a paragraph tag -->
-            {% endfor %}
-            {% endif %}
-            {% endwith %}
+
 
             <form action="/login_process" method="post">
+                
+                {% with messages = get_flashed_messages(category_filter=["login"])
+                %}<!-- declare a variable called messages -->
+                {% if messages %}<!-- check if there are any messages -->
+                {% for message in messages %}<!-- loop through the messages -->
+                <p class="message">{{message}}</p><!-- display each message in a paragraph tag -->
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
                 <p class="reg-nav1">Log in</p>
                 <p><input type="text" id="email" name="email" placeholder="Email"></p>
                 <p><input type="password" id="password" name="password" placeholder="Password"></p>
