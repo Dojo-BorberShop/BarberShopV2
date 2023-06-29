@@ -89,5 +89,3 @@ def view_client(id):
     return render_template("view_client.html", this_user = this_user, logged_user=logged_user)
 
 
-
-

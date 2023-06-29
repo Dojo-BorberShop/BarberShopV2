@@ -84,3 +84,8 @@ def appointments_table():
         All_appointment_objects = appointment.Appointment.get_all_appointments()
         logged_user = user.User.grab_one_user_by_id({"id":session["user_id"]})
         return render_template ("appointments_table.html", logged_user=logged_user, List_Appointment_Objects=All_appointment_objects) 
+
+
+@app.route('/test')
+def test():
+    return render_template ("test.html" )
