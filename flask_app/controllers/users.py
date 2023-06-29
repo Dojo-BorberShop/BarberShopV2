@@ -46,7 +46,10 @@ def register():
     #         return redirect ('/appointments_table')
     #     else:
     #         return redirect ('/create_appointment')
-    return redirect('/test')
+    if(user.User.register_user(request.form)):
+        return redirect('/test')   
+    
+    return redirect ('/register_&_login_view')
 
 @app.route('/login_process', methods = ["POST"]) 
 def login():
