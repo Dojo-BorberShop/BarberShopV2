@@ -13,39 +13,40 @@ def login_register_page():
 
 @app.route('/register_process', methods = ["POST"]) 
 def register():
-    print (request.form)
-    #validate to make sure everything looks good
-    #If the validations are no good, we send the client back and display the error messages.
-    if not user.User.validate_registration(request.form):
-        return redirect ('/register_&_login_view')
+    # print (request.form)
+    # #validate to make sure everything looks good
+    # #If the validations are no good, we send the client back and display the error messages.
+    # if not user.User.validate_registration(request.form):
+    #     return redirect ('/register_&_login_view')
     
-    #If the validations are okay, then we can add the new user to the database and send them to the next route (in this case, the dashboard route).
+    # #If the validations are okay, then we can add the new user to the database and send them to the next route (in this case, the dashboard route).
 
-    else:
-    # Hash the password, because we do not want to add a non-hashed password to the database.
-        hash_password = bcrypt.generate_password_hash(request.form['password'])
-        #Now, we need to send all of the information to the database, including the hashed password. So, we need a new data dictionary:
+    # else:
+    # # Hash the password, because we do not want to add a non-hashed password to the database.
+    #     hash_password = bcrypt.generate_password_hash(request.form['password'])
+    #     #Now, we need to send all of the information to the database, including the hashed password. So, we need a new data dictionary:
 
-        data = {
-            "is_owner": request.form["is_owner"],
-            "first_name":request.form["first_name"],
-            "last_name":request.form["last_name"],
-            "cell":request.form["cell"],
-            "email":request.form["email"],
-            "password":hash_password,
-            "is_owner":request.form["is_owner"]
-        }
+    #     data = {
+    #         "is_owner": request.form["is_owner"],
+    #         "first_name":request.form["first_name"],
+    #         "last_name":request.form["last_name"],
+    #         "cell":request.form["cell"],
+    #         "email":request.form["email"],
+    #         "password":hash_password,
+    #         "is_owner":request.form["is_owner"]
+    #     }
 
-        session["user_id"] = user.User.register_user(data) #Talks to the model to saves the new user in the database.
-        #Above will return the user id, which is useful so we can save the ID in session and then not let a user in if they are not properly registered. Now, we need to add a class method, in the model file, to grab who is logged in based on ID.
+    #     session["user_id"] = user.User.register_user(data) #Talks to the model to saves the new user in the database.
+    #     #Above will return the user id, which is useful so we can save the ID in session and then not let a user in if they are not properly registered. Now, we need to add a class method, in the model file, to grab who is logged in based on ID.
 
-        #Next, in the model, we will need to create a query to find out which user is logged in by ID. So, we add the @classmethod "grab_one_user_by_id"
+    #     #Next, in the model, we will need to create a query to find out which user is logged in by ID. So, we add the @classmethod "grab_one_user_by_id"
         
-        #get user info so can determine if they are an owner:
-        if data["is_owner"] == "1":
-            return redirect ('/appointments_table')
-        else:
-            return redirect ('/create_appointment')
+    #     #get user info so can determine if they are an owner:
+    #     if data["is_owner"] == "1":
+    #         return redirect ('/appointments_table')
+    #     else:
+    #         return redirect ('/create_appointment')
+    return redirect('/test')
 
 @app.route('/login_process', methods = ["POST"]) 
 def login():
